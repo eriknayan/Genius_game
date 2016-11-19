@@ -1,0 +1,11 @@
+PB global_pack global_pack "C:/Users/erikn/Desktop/Projeto Aplicativo/Genius/global_pack.vhd" sub00/vhpl01 1479597568
+PB colors colors "C:/Users/erikn/Desktop/Projeto Aplicativo/Genius/colors.vhd" sub00/vhpl09 1479412012
+PH global_pack NULL "C:/Users/erikn/Desktop/Projeto Aplicativo/Genius/global_pack.vhd" sub00/vhpl00 1479597567
+EN genius NULL "C:/Users/erikn/Desktop/Projeto Aplicativo/Genius/Genius.vhd" sub00/vhpl06 1479597574
+PH colors NULL "C:/Users/erikn/Desktop/Projeto Aplicativo/Genius/colors.vhd" sub00/vhpl08 1479412011
+AR decoder behavioral "C:/Users/erikn/Desktop/Projeto Aplicativo/Genius/Decoder.vhd" sub00/vhpl03 1479597571
+EN vga NULL "C:/Users/erikn/Desktop/Projeto Aplicativo/Genius/VGA.vhd" sub00/vhpl04 1479597572
+AR genius behavioral "C:/Users/erikn/Desktop/Projeto Aplicativo/Genius/Genius.vhd" sub00/vhpl07 1479597575
+EN decoder NULL "C:/Users/erikn/Desktop/Projeto Aplicativo/Genius/Decoder.vhd" sub00/vhpl02 1479597570
+AR vga behavior "C:/Users/erikn/Desktop/Projeto Aplicativo/Genius/VGA.vhd" sub00/vhpl05 1479597573
+PH rom_characters NULL "C:/Users/erikn/Desktop/Projeto Aplicativo/Genius/rom_characters.vhd" sub00/vhpl10 1479597569

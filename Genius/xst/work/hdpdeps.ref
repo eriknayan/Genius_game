@@ -1,0 +1,40 @@
+V3 19
+FL "C:/Users/erikn/Desktop/Projeto Aplicativo/Genius/colors.vhd" 2016/11/17.17:42:36 P.20131013
+PH work/colors 1479412011 \
+      FL "C:/Users/erikn/Desktop/Projeto Aplicativo/Genius/colors.vhd" \
+      PB ieee/std_logic_1164 1381692176
+PB work/colors 1479412012 \
+      FL "C:/Users/erikn/Desktop/Projeto Aplicativo/Genius/colors.vhd" \
+      PH work/colors 1479412011
+FL "C:/Users/erikn/Desktop/Projeto Aplicativo/Genius/Decoder.vhd" 2016/11/17.17:52:29 P.20131013
+EN work/Decoder 1479597570 \
+      FL "C:/Users/erikn/Desktop/Projeto Aplicativo/Genius/Decoder.vhd" \
+      PB ieee/std_logic_1164 1381692176 PB work/global_pack 1479597568
+AR work/Decoder/Behavioral 1479597571 \
+      FL "C:/Users/erikn/Desktop/Projeto Aplicativo/Genius/Decoder.vhd" \
+      EN work/Decoder 1479597570
+FL "C:/Users/erikn/Desktop/Projeto Aplicativo/Genius/Genius.vhd" 2016/11/19.14:57:28 P.20131013
+EN work/Genius 1479597574 \
+      FL "C:/Users/erikn/Desktop/Projeto Aplicativo/Genius/Genius.vhd" \
+      PB ieee/std_logic_1164 1381692176 PB work/global_pack 1479597568
+AR work/Genius/Behavioral 1479597575 \
+      FL "C:/Users/erikn/Desktop/Projeto Aplicativo/Genius/Genius.vhd" \
+      EN work/Genius 1479597574 CP Decoder CP VGA
+FL "C:/Users/erikn/Desktop/Projeto Aplicativo/Genius/global_pack.vhd" 2016/11/17.23:37:58 P.20131013
+PH work/global_pack 1479597567 \
+      FL "C:/Users/erikn/Desktop/Projeto Aplicativo/Genius/global_pack.vhd" \
+      PB ieee/std_logic_1164 1381692176
+PB work/global_pack 1479597568 \
+      FL "C:/Users/erikn/Desktop/Projeto Aplicativo/Genius/global_pack.vhd" \
+      PH work/global_pack 1479597567
+FL "C:/Users/erikn/Desktop/Projeto Aplicativo/Genius/rom_characters.vhd" 2016/11/19.21:19:25 P.20131013
+PH work/rom_characters 1479597569 \
+      FL "C:/Users/erikn/Desktop/Projeto Aplicativo/Genius/rom_characters.vhd" \
+      PB ieee/std_logic_1164 1381692176
+FL "C:/Users/erikn/Desktop/Projeto Aplicativo/Genius/VGA.vhd" 2016/11/19.19:58:30 P.20131013
+EN work/VGA 1479597572 \
+      FL "C:/Users/erikn/Desktop/Projeto Aplicativo/Genius/VGA.vhd" \
+      PB ieee/std_logic_1164 1381692176 PB work/global_pack 1479597568 \
+      PH work/rom_characters 1479597569
+AR work/VGA/behavior 1479597573 \
+      FL "C:/Users/erikn/Desktop/Projeto Aplicativo/Genius/VGA.vhd" EN work/VGA 1479597572

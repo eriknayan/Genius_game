@@ -1,0 +1,42 @@
+NET "LEDs(0)" LOC = "J14";
+NET "LEDs(1)" LOC = "J15";
+NET "LEDs(2)" LOC = "K15";
+NET "LEDs(3)" LOC = "K14";
+
+NET "display(6)" LOC = "L18";
+NET "display(5)" LOC = "F18";
+NET "display(4)" LOC = "D17";
+NET "display(3)" LOC = "D16";
+NET "display(2)" LOC = "G14";
+NET "display(1)" LOC = "J17";
+NET "display(0)" LOC = "H14";
+
+NET "anode(0)" LOC = "F17";
+NET "anode(1)" LOC = "H17";
+NET "anode(2)" LOC = "C18";
+NET "anode(3)" LOC = "F15";
+
+NET "red(0)" LOC = "R9";
+NET "red(1)" LOC = "T8";
+NET "red(2)" LOC = "R8";
+NET "green(0)" LOC = "N8";
+NET "green(1)" LOC = "P8";
+NET "green(2)" LOC = "P6";
+NET "blue(0)" LOC = "U5";
+NET "blue(1)" LOC = "U4";
+
+NET "h_sync" LOC = "T4";
+NET "v_sync" LOC = "U3";
+
+NET "clk" LOC = "B8";
+
+NET "diff(0)" LOC = "K18";
+NET "diff(1)" LOC = "K17";
+
+NET "switches(0)" LOC = "B18";
+NET "switches(1)" LOC = "D18";
+NET "switches(2)" LOC = "E18";
+NET "switches(3)" LOC = "H13";
+
+NET "start" LOC = "G18";
+NET "reset" LOC = "H18";

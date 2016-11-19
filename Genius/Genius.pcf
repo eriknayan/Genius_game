@@ -1,0 +1,42 @@
+//! **************************************************************************
+// Written by: Map P.20131013 on Sat Nov 19 21:19:58 2016
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "clk" LOCATE = SITE "B8" LEVEL 1;
+COMP "diff<0>" LOCATE = SITE "K18" LEVEL 1;
+COMP "diff<1>" LOCATE = SITE "K17" LEVEL 1;
+COMP "blue<0>" LOCATE = SITE "U5" LEVEL 1;
+COMP "blue<1>" LOCATE = SITE "U4" LEVEL 1;
+COMP "switches<0>" LOCATE = SITE "B18" LEVEL 1;
+COMP "switches<1>" LOCATE = SITE "D18" LEVEL 1;
+COMP "switches<2>" LOCATE = SITE "E18" LEVEL 1;
+COMP "switches<3>" LOCATE = SITE "H13" LEVEL 1;
+COMP "leds<0>" LOCATE = SITE "J14" LEVEL 1;
+COMP "leds<1>" LOCATE = SITE "J15" LEVEL 1;
+COMP "leds<2>" LOCATE = SITE "K15" LEVEL 1;
+COMP "leds<3>" LOCATE = SITE "K14" LEVEL 1;
+COMP "reset" LOCATE = SITE "H18" LEVEL 1;
+COMP "start" LOCATE = SITE "G18" LEVEL 1;
+COMP "anode<0>" LOCATE = SITE "F17" LEVEL 1;
+COMP "anode<1>" LOCATE = SITE "H17" LEVEL 1;
+COMP "anode<2>" LOCATE = SITE "C18" LEVEL 1;
+COMP "anode<3>" LOCATE = SITE "F15" LEVEL 1;
+COMP "display<0>" LOCATE = SITE "H14" LEVEL 1;
+COMP "display<1>" LOCATE = SITE "J17" LEVEL 1;
+COMP "display<2>" LOCATE = SITE "G14" LEVEL 1;
+COMP "display<3>" LOCATE = SITE "D16" LEVEL 1;
+COMP "display<4>" LOCATE = SITE "D17" LEVEL 1;
+COMP "display<5>" LOCATE = SITE "F18" LEVEL 1;
+COMP "display<6>" LOCATE = SITE "L18" LEVEL 1;
+COMP "red<0>" LOCATE = SITE "R9" LEVEL 1;
+COMP "red<1>" LOCATE = SITE "T8" LEVEL 1;
+COMP "red<2>" LOCATE = SITE "R8" LEVEL 1;
+COMP "h_sync" LOCATE = SITE "T4" LEVEL 1;
+COMP "green<0>" LOCATE = SITE "N8" LEVEL 1;
+COMP "green<1>" LOCATE = SITE "P8" LEVEL 1;
+COMP "green<2>" LOCATE = SITE "P6" LEVEL 1;
+COMP "v_sync" LOCATE = SITE "U3" LEVEL 1;
+NET "clk_BUFGP/IBUFG" BEL "clk_BUFGP/BUFG.GCLKMUX" USELOCALCONNECT;
+SCHEMATIC END;
+

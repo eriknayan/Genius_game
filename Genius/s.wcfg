@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="D:/Documentos/Xilinx/Genius Game/Genius/Genius_TB_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="genius_tb" />
+            <top_module name="global_pack" />
+            <top_module name="std_logic_1164" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="15" />
+   <wvobject fp_name="/genius_tb/uut/clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/genius_tb/uut/start" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">start</obj_property>
+      <obj_property name="ObjectShortName">start</obj_property>
+   </wvobject>
+   <wvobject fp_name="/genius_tb/uut/reset" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/genius_tb/uut/diff" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">diff[1:0]</obj_property>
+      <obj_property name="ObjectShortName">diff[1:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/genius_tb/uut/switches" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">switches[3:0]</obj_property>
+      <obj_property name="ObjectShortName">switches[3:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/genius_tb/uut/leds" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">leds[3:0]</obj_property>
+      <obj_property name="ObjectShortName">leds[3:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/genius_tb/uut/key_delay" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">key_delay</obj_property>
+      <obj_property name="ObjectShortName">key_delay</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/genius_tb/uut/dly_delay" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">dly_delay</obj_property>
+      <obj_property name="ObjectShortName">dly_delay</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/genius_tb/uut/seq_delay" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">seq_delay</obj_property>
+      <obj_property name="ObjectShortName">seq_delay</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/genius_tb/uut/s" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">s</obj_property>
+      <obj_property name="ObjectShortName">s</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/genius_tb/uut/n" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">n</obj_property>
+      <obj_property name="ObjectShortName">n</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/genius_tb/uut/lvl" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">lvl</obj_property>
+      <obj_property name="ObjectShortName">lvl</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/genius_tb/uut/try" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">try[14:1]</obj_property>
+      <obj_property name="ObjectShortName">try[14:1]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/genius_tb/uut/pr_state" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">pr_state</obj_property>
+      <obj_property name="ObjectShortName">pr_state</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/genius_tb/uut/nx_state" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">nx_state</obj_property>
+      <obj_property name="ObjectShortName">nx_state</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+</wave_config>

@@ -1,0 +1,648 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.11 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.11 secs
+ 
+--> Reading design: Genius.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "Genius.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "Genius"
+Output Format                      : NGC
+Target Device                      : xc3s500e-5-fg320
+
+---- Source Options
+Top Module Name                    : Genius
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : Yes
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 500
+Add Generic Clock Buffer(BUFG)     : 24
+Register Duplication               : YES
+Move First FlipFlop Stage          : YES
+Move Last FlipFlop Stage           : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : False
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 2
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling vhdl file "C:/Users/erikn/Desktop/Projeto Aplicativo/Genius/global_pack.vhd" in Library work.
+Architecture global_pack of Entity global_pack is up to date.
+Compiling vhdl file "C:/Users/erikn/Desktop/Projeto Aplicativo/Genius/rom_characters.vhd" in Library work.
+Package <rom_characters> compiled.
+Compiling vhdl file "C:/Users/erikn/Desktop/Projeto Aplicativo/Genius/Decoder.vhd" in Library work.
+Architecture behavioral of Entity decoder is up to date.
+Compiling vhdl file "C:/Users/erikn/Desktop/Projeto Aplicativo/Genius/VGA.vhd" in Library work.
+Architecture behavior of Entity vga is up to date.
+Compiling vhdl file "C:/Users/erikn/Desktop/Projeto Aplicativo/Genius/Genius.vhd" in Library work.
+Architecture behavioral of Entity genius is up to date.
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for entity <Genius> in library <work> (architecture <behavioral>) with generics.
+	T = 250000000
+	d = 5000000
+	e = 50000000
+	h = 10000000
+	m = 25000000
+	p = 5000000
+
+Analyzing hierarchy for entity <Decoder> in library <work> (architecture <behavioral>) with generics.
+	f = 4000
+	l = 25000000
+
+Analyzing hierarchy for entity <VGA> in library <work> (architecture <behavior>) with generics.
+	h_bp = 64
+	h_fp = 56
+	h_pixels = 800
+	h_pol = '1'
+	h_pulse = 120
+	v_bp = 23
+	v_fp = 37
+	v_pixels = 600
+	v_pol = '1'
+	v_pulse = 6
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing generic Entity <Genius> in library <work> (Architecture <behavioral>).
+	T = 250000000
+	d = 5000000
+	e = 50000000
+	h = 10000000
+	m = 25000000
+	p = 5000000
+Entity <Genius> analyzed. Unit <Genius> generated.
+
+Analyzing generic Entity <Decoder> in library <work> (Architecture <behavioral>).
+	f = 4000
+	l = 25000000
+Entity <Decoder> analyzed. Unit <Decoder> generated.
+
+Analyzing generic Entity <VGA> in library <work> (Architecture <behavior>).
+	h_bp = 64
+	h_fp = 56
+	h_pixels = 800
+	h_pol = '1'
+	h_pulse = 120
+	v_bp = 23
+	v_fp = 37
+	v_pixels = 600
+	v_pol = '1'
+	v_pulse = 6
+Entity <VGA> analyzed. Unit <VGA> generated.
+
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <Decoder>.
+    Related source file is "C:/Users/erikn/Desktop/Projeto Aplicativo/Genius/Decoder.vhd".
+    Found 1-of-4 decoder for signal <anode>.
+    Found 7-bit 4-to-1 multiplexer for signal <$varindex0000> created at line 101.
+    Found 12-bit down counter for signal <count_f>.
+    Found 25-bit down counter for signal <count_l>.
+    Found 5-bit adder for signal <display$addsub0000> created at line 95.
+    Found 2-bit down counter for signal <i>.
+    Found 5-bit down counter for signal <j>.
+    Summary:
+	inferred   4 Counter(s).
+	inferred   1 Adder/Subtractor(s).
+	inferred   7 Multiplexer(s).
+	inferred   1 Decoder(s).
+Unit <Decoder> synthesized.
+
+
+Synthesizing Unit <VGA>.
+    Related source file is "C:/Users/erikn/Desktop/Projeto Aplicativo/Genius/VGA.vhd".
+    Found 1-bit register for signal <h_sync>.
+    Found 2-bit register for signal <blue>.
+    Found 3-bit register for signal <green>.
+    Found 3-bit register for signal <red>.
+    Found 1-bit register for signal <v_sync>.
+    Found 10-bit comparator less for signal <blue$cmp_lt0000> created at line 81.
+    Found 10-bit comparator less for signal <blue$cmp_lt0001> created at line 83.
+    Found 11-bit comparator greater for signal <blue0$cmp_gt0000> created at line 42.
+    Found 11-bit comparator less for signal <blue0$cmp_lt0000> created at line 42.
+    Found 11-bit comparator greater for signal <green0$cmp_gt0000> created at line 62.
+    Found 11-bit comparator greater for signal <green0$cmp_gt0001> created at line 52.
+    Found 11-bit comparator less for signal <green0$cmp_lt0000> created at line 62.
+    Found 11-bit comparator less for signal <green0$cmp_lt0001> created at line 52.
+    Found 11-bit register for signal <h_count>.
+    Found 11-bit adder for signal <h_count$addsub0000> created at line 56.
+    Found 11-bit comparator less for signal <h_count$cmp_lt0000> created at line 55.
+    Found 11-bit comparator greater for signal <h_sync$cmp_gt0000> created at line 67.
+    Found 11-bit comparator less for signal <h_sync$cmp_lt0000> created at line 67.
+    Found 11-bit comparator less for signal <red0$cmp_lt0000> created at line 32.
+    Found 10-bit register for signal <v_count>.
+    Found 10-bit adder for signal <v_count$addsub0000> created at line 60.
+    Found 10-bit comparator less for signal <v_count$cmp_lt0001> created at line 59.
+    Found 10-bit comparator greater for signal <v_sync$cmp_gt0000> created at line 74.
+    Found 10-bit comparator less for signal <v_sync$cmp_lt0000> created at line 74.
+    Summary:
+	inferred  31 D-type flip-flop(s).
+	inferred   2 Adder/Subtractor(s).
+	inferred  15 Comparator(s).
+Unit <VGA> synthesized.
+
+
+Synthesizing Unit <Genius>.
+    Related source file is "C:/Users/erikn/Desktop/Projeto Aplicativo/Genius/Genius.vhd".
+WARNING:Xst:646 - Signal <nx_state> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+    Found 4x26-bit ROM for signal <mode$mux0002> created at line 89.
+    Found 15x8-bit ROM for signal <n$rom0000>.
+    Found 4-bit register for signal <leds>.
+    Found 4-bit register for signal <color>.
+    Found 23-bit down counter for signal <dly_delay>.
+    Found 4-bit comparator equal for signal <dly_delay$cmp_eq0003> created at line 234.
+    Found 23-bit comparator lessequal for signal <dly_delay$cmp_le0000> created at line 248.
+    Found 4-bit comparator not equal for signal <dly_delay$cmp_ne0000> created at line 234.
+    Found 28-bit down counter for signal <key_delay>.
+    Found 28-bit comparator lessequal for signal <key_delay$cmp_le0000> created at line 252.
+    Found 4-bit 10-to-1 multiplexer for signal <leds$mux0001> created at line 80.
+    Found 4-bit register for signal <lvl>.
+    Found 4-bit adder for signal <lvl$addsub0000> created at line 187.
+    Found 4-bit 10-to-1 multiplexer for signal <lvl$mux0000> created at line 80.
+    Found 26-bit register for signal <mode>.
+    Found 4-bit register for signal <n>.
+    Found 4-bit adder for signal <n$addsub0000> created at line 119.
+    Found 4-bit 10-to-1 multiplexer for signal <n$mux0000> created at line 80.
+    Found 4-bit comparator equal for signal <nx_state$cmp_eq0003> created at line 164.
+    Found 4-bit comparator equal for signal <nx_state$cmp_eq0004> created at line 165.
+    Found 4-bit comparator equal for signal <nx_state$cmp_eq0007> created at line 115.
+    Found 4-bit 10-to-1 multiplexer for signal <nx_state$mux0009> created at line 80.
+    Found 4-bit register for signal <pr_state>.
+    Found 4-bit register for signal <s>.
+    Found 4-bit adder for signal <s$addsub0000> created at line 168.
+    Found 4-bit 10-to-1 multiplexer for signal <s$mux0000> created at line 80.
+    Found 26-bit down counter for signal <seq_delay>.
+    Found 26-bit comparator lessequal for signal <seq_delay$cmp_le0000> created at line 244.
+    Found 23-bit down counter for signal <swt_delay>.
+    Found 23-bit comparator lessequal for signal <swt_delay$cmp_le0000> created at line 256.
+    Found 4-bit register for signal <try>.
+    Found 4-bit 10-to-1 multiplexer for signal <try$mux0000> created at line 80.
+    Summary:
+	inferred   2 ROM(s).
+	inferred   4 Counter(s).
+	inferred  54 D-type flip-flop(s).
+	inferred   3 Adder/Subtractor(s).
+	inferred   9 Comparator(s).
+	inferred  24 Multiplexer(s).
+Unit <Genius> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# ROMs                                                 : 2
+ 15x8-bit ROM                                          : 1
+ 4x26-bit ROM                                          : 1
+# Adders/Subtractors                                   : 6
+ 10-bit adder                                          : 1
+ 11-bit adder                                          : 1
+ 4-bit adder                                           : 3
+ 5-bit adder                                           : 1
+# Counters                                             : 8
+ 12-bit down counter                                   : 1
+ 2-bit down counter                                    : 1
+ 23-bit down counter                                   : 2
+ 25-bit down counter                                   : 1
+ 26-bit down counter                                   : 1
+ 28-bit down counter                                   : 1
+ 5-bit down counter                                    : 1
+# Registers                                            : 15
+ 1-bit register                                        : 2
+ 10-bit register                                       : 1
+ 11-bit register                                       : 1
+ 2-bit register                                        : 1
+ 26-bit register                                       : 1
+ 3-bit register                                        : 2
+ 4-bit register                                        : 7
+# Comparators                                          : 24
+ 10-bit comparator greater                             : 1
+ 10-bit comparator less                                : 4
+ 11-bit comparator greater                             : 4
+ 11-bit comparator less                                : 6
+ 23-bit comparator lessequal                           : 2
+ 26-bit comparator lessequal                           : 1
+ 28-bit comparator lessequal                           : 1
+ 4-bit comparator equal                                : 4
+ 4-bit comparator not equal                            : 1
+# Multiplexers                                         : 7
+ 4-bit 10-to-1 multiplexer                             : 6
+ 7-bit 4-to-1 multiplexer                              : 1
+# Decoders                                             : 1
+ 1-of-4 decoder                                        : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+Synthesizing (advanced) Unit <Genius>.
+INFO:Xst:3034 - In order to maximize performance and save block RAM resources, the small ROM <Mrom_n_rom0000> will be implemented on LUT. If you want to force its implementation on block, use option/constraint rom_style.
+Unit <Genius> synthesized (advanced).
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# ROMs                                                 : 2
+ 15x8-bit ROM                                          : 1
+ 4x26-bit ROM                                          : 1
+# Adders/Subtractors                                   : 6
+ 10-bit adder                                          : 1
+ 11-bit adder                                          : 1
+ 4-bit adder                                           : 3
+ 5-bit adder                                           : 1
+# Counters                                             : 8
+ 12-bit down counter                                   : 1
+ 2-bit down counter                                    : 1
+ 23-bit down counter                                   : 2
+ 25-bit down counter                                   : 1
+ 26-bit down counter                                   : 1
+ 28-bit down counter                                   : 1
+ 5-bit down counter                                    : 1
+# Registers                                            : 85
+ Flip-Flops                                            : 85
+# Comparators                                          : 24
+ 10-bit comparator greater                             : 1
+ 10-bit comparator less                                : 4
+ 11-bit comparator greater                             : 4
+ 11-bit comparator less                                : 6
+ 23-bit comparator lessequal                           : 2
+ 26-bit comparator lessequal                           : 1
+ 28-bit comparator lessequal                           : 1
+ 4-bit comparator equal                                : 4
+ 4-bit comparator not equal                            : 1
+# Multiplexers                                         : 7
+ 4-bit 10-to-1 multiplexer                             : 6
+ 7-bit 4-to-1 multiplexer                              : 1
+# Decoders                                             : 1
+ 1-of-4 decoder                                        : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+WARNING:Xst:1293 - FF/Latch <mode_0> has a constant value of 0 in block <Genius>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mode_1> has a constant value of 0 in block <Genius>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mode_2> has a constant value of 0 in block <Genius>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mode_3> has a constant value of 0 in block <Genius>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mode_4> has a constant value of 0 in block <Genius>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mode_5> has a constant value of 0 in block <Genius>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mode_8> has a constant value of 0 in block <Genius>. This FF/Latch will be trimmed during the optimization process.
+
+Optimizing unit <Genius> ...
+WARNING:Xst:1293 - FF/Latch <mode_12> has a constant value of 1 in block <Genius>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mode_19> has a constant value of 1 in block <Genius>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mode_20> has a constant value of 1 in block <Genius>. This FF/Latch will be trimmed during the optimization process.
+
+Optimizing unit <Decoder> ...
+
+Optimizing unit <VGA> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block Genius, actual ratio is 8.
+Forward register balancing over carry chain monitor/Mcompar_h_count_cmp_lt0000_cy<0>
+Forward register balancing over carry chain monitor/Madd_h_count_addsub0000_cy<0>
+Forward register balancing over carry chain monitor/Madd_v_count_addsub0000_cy<0>
+
+Pipelining and Register Balancing Report ...
+
+Processing Unit <Genius> :
+	Register(s) lvl_1 lvl_2 lvl_0 lvl_3 has(ve) been forward balanced into : nx_state_mux0012<3>1_FRB.
+	Register(s) lvl_1 n_1 lvl_0 n_0 has(ve) been forward balanced into : nx_state_mux0017<2>26_FRB.
+	Register(s) lvl_1 s_1 lvl_0 s_0 has(ve) been forward balanced into : nx_state_cmp_eq0004426_FRB.
+	Register(s) lvl_3 s_3 lvl_2 s_2 has(ve) been forward balanced into : nx_state_cmp_eq0004453_FRB.
+	Register(s) nx_state_cmp_eq00034142_FRB nx_state_cmp_eq00034196_FRB nx_state_cmp_eq00034200_FRB has(ve) been forward balanced into : nx_state_cmp_eq00034218_FRB.
+	Register(s) nx_state_cmp_eq0003417_FRB nx_state_cmp_eq0003420_FRB nx_state_cmp_eq0003469_FRB try_1 has(ve) been forward balanced into : nx_state_cmp_eq0003488_FRB.
+	Register(s) nx_state_cmp_eq0004426_FRB nx_state_cmp_eq0004453_FRB has(ve) been forward balanced into : nx_state_cmp_eq0004454_FRB.
+	Register(s) try_3 try_0 s_1 has(ve) been forward balanced into : nx_state_cmp_eq00034108_FRB.
+	Register(s) monitor/blue_0 has(ve) been backward balanced into : monitor/blue_0_BRB1 monitor/blue_0_BRB2 .
+	Register(s) monitor/green_0 has(ve) been backward balanced into : monitor/green_0_BRB0 monitor/green_0_BRB1 monitor/green_0_BRB2.
+	Register(s) monitor/green_1 has(ve) been backward balanced into : monitor/green_1_BRB2 monitor/green_1_BRB3.
+	Register(s) monitor/green_2 has(ve) been backward balanced into : monitor/green_2_BRB1 monitor/green_2_BRB2 monitor/green_2_BRB3.
+	Register(s) monitor/red_0 has(ve) been backward balanced into : monitor/red_0_BRB3.
+	Register(s) monitor/red_1 has(ve) been backward balanced into : monitor/red_1_BRB1 monitor/red_1_BRB3.
+Unit <Genius> processed.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 246
+ Flip-Flops                                            : 246
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : Genius.ngr
+Top Level Output File Name         : Genius
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 34
+
+Cell Usage :
+# BELS                             : 1175
+#      GND                         : 1
+#      INV                         : 41
+#      LUT1                        : 22
+#      LUT2                        : 70
+#      LUT2_D                      : 2
+#      LUT2_L                      : 3
+#      LUT3                        : 146
+#      LUT3_D                      : 7
+#      LUT3_L                      : 4
+#      LUT4                        : 428
+#      LUT4_D                      : 10
+#      LUT4_L                      : 13
+#      MUXCY                       : 235
+#      MUXF5                       : 32
+#      MUXF6                       : 2
+#      VCC                         : 1
+#      XORCY                       : 158
+# FlipFlops/Latches                : 246
+#      FDC                         : 51
+#      FDCE                        : 6
+#      FDE                         : 164
+#      FDP                         : 20
+#      FDPE                        : 5
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 33
+#      IBUF                        : 8
+#      OBUF                        : 25
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s500efg320-5 
+
+ Number of Slices:                      403  out of   4656     8%  
+ Number of Slice Flip Flops:            246  out of   9312     2%  
+ Number of 4 input LUTs:                746  out of   9312     8%  
+ Number of IOs:                          34
+ Number of bonded IOBs:                  34  out of    232    14%  
+ Number of GCLKs:                         1  out of     24     4%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clk                                | BUFGP                  | 246   |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+-----------------------------------+------------------------+-------+
+Control Signal                     | Buffer(FF name)        | Load  |
+-----------------------------------+------------------------+-------+
+reset                              | IBUF                   | 82    |
+-----------------------------------+------------------------+-------+
+
+Timing Summary:
+---------------
+Speed Grade: -5
+
+   Minimum period: 11.977ns (Maximum Frequency: 83.493MHz)
+   Minimum input arrival time before clock: 12.074ns
+   Maximum output required time after clock: 12.344ns
+   Maximum combinational path delay: No path found
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 11.977ns (frequency: 83.493MHz)
+  Total number of paths / destination ports: 964300 / 361
+-------------------------------------------------------------------------
+Delay:               11.977ns (Levels of Logic = 15)
+  Source:            key_delay_7 (FF)
+  Destination:       key_delay_0 (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: key_delay_7 to key_delay_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDE:C->Q              4   0.514   0.651  key_delay_7 (key_delay_7)
+     LUT4:I0->O            1   0.612   0.000  nx_state_cmp_eq0002_wg_lut<0> (nx_state_cmp_eq0002_wg_lut<0>)
+     MUXCY:S->O            1   0.404   0.000  nx_state_cmp_eq0002_wg_cy<0> (nx_state_cmp_eq0002_wg_cy<0>)
+     MUXCY:CI->O           1   0.052   0.000  nx_state_cmp_eq0002_wg_cy<1> (nx_state_cmp_eq0002_wg_cy<1>)
+     MUXCY:CI->O           1   0.052   0.000  nx_state_cmp_eq0002_wg_cy<2> (nx_state_cmp_eq0002_wg_cy<2>)
+     MUXCY:CI->O           1   0.052   0.000  nx_state_cmp_eq0002_wg_cy<3> (nx_state_cmp_eq0002_wg_cy<3>)
+     MUXCY:CI->O           1   0.052   0.000  nx_state_cmp_eq0002_wg_cy<4> (nx_state_cmp_eq0002_wg_cy<4>)
+     MUXCY:CI->O           1   0.052   0.000  nx_state_cmp_eq0002_wg_cy<5> (nx_state_cmp_eq0002_wg_cy<5>)
+     MUXCY:CI->O          11   0.399   0.945  nx_state_cmp_eq0002_wg_cy<6> (nx_state_cmp_eq0002)
+     LUT2:I0->O            1   0.612   0.000  nx_state_mux0013<3>1 (nx_state_mux0013<3>)
+     MUXF5:I1->O           1   0.278   0.000  Mmux_nx_state_mux0009_7_f5 (Mmux_nx_state_mux0009_7_f5)
+     MUXF6:I0->O           5   0.451   0.541  Mmux_nx_state_mux0009_5_f6 (Mmux_nx_state_mux0009_5_f6)
+     LUT4:I3->O           49   0.612   1.077  dly_delay_not0001_inv58 (dly_delay_not0001_inv58)
+     MUXF5:S->O           12   0.641   0.820  dly_delay_not0001_inv96 (dly_delay_not0001_inv)
+     LUT4:I3->O            2   0.612   0.383  dly_delay_and000011 (N28)
+     LUT4:I3->O           28   0.612   1.072  key_delay_and0000 (key_delay_and0000)
+     FDE:CE                    0.483          key_delay_0
+    ----------------------------------------
+    Total                     11.977ns (6.488ns logic, 5.489ns route)
+                                       (54.2% logic, 45.8% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+  Total number of paths / destination ports: 79463 / 325
+-------------------------------------------------------------------------
+Offset:              12.074ns (Levels of Logic = 10)
+  Source:            switches<1> (PAD)
+  Destination:       dly_delay_0 (FF)
+  Destination Clock: clk rising
+
+  Data Path: switches<1> to dly_delay_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            11   1.106   0.945  switches_1_IBUF (switches_1_IBUF)
+     LUT4:I0->O            8   0.612   0.795  nx_state_mux0014<3>1 (nx_state_mux0014<3>)
+     LUT3:I0->O            1   0.612   0.360  nx_state_mux0013<2>1_SW0 (N220)
+     LUT4:I3->O            1   0.612   0.000  Mmux_nx_state_mux0009_82 (Mmux_nx_state_mux0009_82)
+     MUXF5:I1->O           1   0.278   0.000  Mmux_nx_state_mux0009_7_f5_0 (Mmux_nx_state_mux0009_7_f51)
+     MUXF6:I0->O          55   0.451   1.082  Mmux_nx_state_mux0009_5_f6_0 (Mmux_nx_state_mux0009_5_f61)
+     LUT4_D:I3->O          1   0.612   0.426  dly_delay_and000171 (dly_delay_and000171)
+     LUT4_D:I1->O          3   0.612   0.454  dly_delay_and0001143 (dly_delay_and0001143)
+     LUT4_D:I3->O          1   0.612   0.387  dly_delay_and000021 (N74)
+     LUT4:I2->O           23   0.612   1.022  dly_delay_and0000 (dly_delay_and0000)
+     FDE:CE                    0.483          dly_delay_0
+    ----------------------------------------
+    Total                     12.074ns (6.602ns logic, 5.472ns route)
+                                       (54.7% logic, 45.3% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 683 / 25
+-------------------------------------------------------------------------
+Offset:              12.344ns (Levels of Logic = 8)
+  Source:            disp/i_1 (FF)
+  Destination:       display<2> (PAD)
+  Source Clock:      clk rising
+
+  Data Path: disp/i_1 to display<2>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDPE:C->Q            23   0.514   1.174  disp/i_1 (disp/i_1)
+     LUT4:I0->O            8   0.612   0.712  disp/Madd_display_addsub0000_xor<4>111 (disp/N1)
+     LUT2:I1->O            4   0.612   0.502  disp/Madd_display_addsub0000_xor<3>111 (disp/N35)
+     LUT4:I3->O            4   0.612   0.529  disp/display<6>312 (disp/N24)
+     LUT4:I2->O            1   0.612   0.360  disp/display<1>237_SW0 (N375)
+     LUT4:I3->O            2   0.612   0.383  disp/display<1>237 (disp/display<1>237)
+     LUT4:I3->O            1   0.612   0.360  disp/display<1>248 (disp/N2)
+     LUT4:I3->O            1   0.612   0.357  disp/display<2> (display_2_OBUF)
+     OBUF:I->O                 3.169          display_2_OBUF (display<2>)
+    ----------------------------------------
+    Total                     12.344ns (7.967ns logic, 4.377ns route)
+                                       (64.5% logic, 35.5% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 13.00 secs
+Total CPU time to Xst completion: 12.26 secs
+ 
+--> 
+
+Total memory usage is 275252 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :   11 (   0 filtered)
+Number of infos    :    1 (   0 filtered)
+
