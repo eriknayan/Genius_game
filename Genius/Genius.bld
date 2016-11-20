@@ -5,8 +5,7 @@ Command Line: C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\ngdbuild.exe
 -intstyle ise -dd _ngo -nt timestamp -uc nexys2.ucf -p xc3s500e-fg320-5
 Genius.ngc Genius.ngd
 
-Reading NGO file "C:/Users/erikn/Desktop/Projeto Aplicativo/Genius/Genius.ngc"
-...
+Reading NGO file "C:/Users/erikn/Genius Game/Genius/Genius.ngc" ...
 Gathering constraint information from source properties...
 Done.
 
@@ -28,7 +27,7 @@ NGDBUILD Design Results Summary:
   Number of errors:     0
   Number of warnings:   0
 
-Total memory usage is 187120 kilobytes
+Total memory usage is 187104 kilobytes
 
 Writing NGD file "Genius.ngd" ...
 Total REAL time to NGDBUILD completion:  3 sec

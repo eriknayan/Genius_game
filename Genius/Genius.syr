@@ -3,14 +3,14 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 --> Parameter TMPDIR set to xst/projnav.tmp
 
 
-Total REAL time to Xst completion: 1.00 secs
-Total CPU time to Xst completion: 0.11 secs
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.14 secs
  
 --> Parameter xsthdpdir set to xst
 
 
-Total REAL time to Xst completion: 1.00 secs
-Total CPU time to Xst completion: 0.11 secs
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.14 secs
  
 --> Reading design: Genius.prj
 
@@ -106,15 +106,25 @@ Slice Utilization Ratio Delta      : 5
 =========================================================================
 *                          HDL Compilation                              *
 =========================================================================
-Compiling vhdl file "C:/Users/erikn/Desktop/Projeto Aplicativo/Genius/global_pack.vhd" in Library work.
+WARNING:HDLParsers:3607 - Unit work/Genius is now defined in a different file.  It was defined in "C:/Users/erikn/Desktop/Projeto Aplicativo/Genius/Genius.vhd", and is now defined in "C:/Users/erikn/Genius Game/Genius/Genius.vhd".
+WARNING:HDLParsers:3607 - Unit work/Genius/Behavioral is now defined in a different file.  It was defined in "C:/Users/erikn/Desktop/Projeto Aplicativo/Genius/Genius.vhd", and is now defined in "C:/Users/erikn/Genius Game/Genius/Genius.vhd".
+WARNING:HDLParsers:3607 - Unit work/Decoder is now defined in a different file.  It was defined in "C:/Users/erikn/Desktop/Projeto Aplicativo/Genius/Decoder.vhd", and is now defined in "C:/Users/erikn/Genius Game/Genius/Decoder.vhd".
+WARNING:HDLParsers:3607 - Unit work/Decoder/Behavioral is now defined in a different file.  It was defined in "C:/Users/erikn/Desktop/Projeto Aplicativo/Genius/Decoder.vhd", and is now defined in "C:/Users/erikn/Genius Game/Genius/Decoder.vhd".
+WARNING:HDLParsers:3607 - Unit work/VGA is now defined in a different file.  It was defined in "C:/Users/erikn/Desktop/Projeto Aplicativo/Genius/VGA.vhd", and is now defined in "C:/Users/erikn/Genius Game/Genius/VGA.vhd".
+WARNING:HDLParsers:3607 - Unit work/VGA/behavior is now defined in a different file.  It was defined in "C:/Users/erikn/Desktop/Projeto Aplicativo/Genius/VGA.vhd", and is now defined in "C:/Users/erikn/Genius Game/Genius/VGA.vhd".
+WARNING:HDLParsers:3607 - Unit work/rom_characters is now defined in a different file.  It was defined in "C:/Users/erikn/Desktop/Projeto Aplicativo/Genius/rom_characters.vhd", and is now defined in "C:/Users/erikn/Genius Game/Genius/char_rom.vhd".
+WARNING:HDLParsers:3607 - Unit work/global_pack is now defined in a different file.  It was defined in "C:/Users/erikn/Desktop/Projeto Aplicativo/Genius/global_pack.vhd", and is now defined in "C:/Users/erikn/Genius Game/Genius/global_pack.vhd".
+WARNING:HDLParsers:3607 - Unit work/global_pack is now defined in a different file.  It was defined in "C:/Users/erikn/Desktop/Projeto Aplicativo/Genius/global_pack.vhd", and is now defined in "C:/Users/erikn/Genius Game/Genius/global_pack.vhd".
+Compiling vhdl file "C:/Users/erikn/Genius Game/Genius/global_pack.vhd" in Library work.
 Architecture global_pack of Entity global_pack is up to date.
-Compiling vhdl file "C:/Users/erikn/Desktop/Projeto Aplicativo/Genius/rom_characters.vhd" in Library work.
+Compiling vhdl file "C:/Users/erikn/Genius Game/Genius/char_rom.vhd" in Library work.
 Package <rom_characters> compiled.
-Compiling vhdl file "C:/Users/erikn/Desktop/Projeto Aplicativo/Genius/Decoder.vhd" in Library work.
+Compiling vhdl file "C:/Users/erikn/Genius Game/Genius/Decoder.vhd" in Library work.
 Architecture behavioral of Entity decoder is up to date.
-Compiling vhdl file "C:/Users/erikn/Desktop/Projeto Aplicativo/Genius/VGA.vhd" in Library work.
-Architecture behavior of Entity vga is up to date.
-Compiling vhdl file "C:/Users/erikn/Desktop/Projeto Aplicativo/Genius/Genius.vhd" in Library work.
+Compiling vhdl file "C:/Users/erikn/Genius Game/Genius/VGA.vhd" in Library work.
+Entity <vga> compiled.
+Entity <vga> (Architecture <behavior>) compiled.
+Compiling vhdl file "C:/Users/erikn/Genius Game/Genius/Genius.vhd" in Library work.
 Architecture behavioral of Entity genius is up to date.
 
 =========================================================================
@@ -183,7 +193,7 @@ Entity <VGA> analyzed. Unit <VGA> generated.
 Performing bidirectional port resolution...
 
 Synthesizing Unit <Decoder>.
-    Related source file is "C:/Users/erikn/Desktop/Projeto Aplicativo/Genius/Decoder.vhd".
+    Related source file is "C:/Users/erikn/Genius Game/Genius/Decoder.vhd".
     Found 1-of-4 decoder for signal <anode>.
     Found 7-bit 4-to-1 multiplexer for signal <$varindex0000> created at line 101.
     Found 12-bit down counter for signal <count_f>.
@@ -200,7 +210,7 @@ Unit <Decoder> synthesized.
 
 
 Synthesizing Unit <VGA>.
-    Related source file is "C:/Users/erikn/Desktop/Projeto Aplicativo/Genius/VGA.vhd".
+    Related source file is "C:/Users/erikn/Genius Game/Genius/VGA.vhd".
     Found 1-bit register for signal <h_sync>.
     Found 2-bit register for signal <blue>.
     Found 3-bit register for signal <green>.
@@ -233,7 +243,7 @@ Unit <VGA> synthesized.
 
 
 Synthesizing Unit <Genius>.
-    Related source file is "C:/Users/erikn/Desktop/Projeto Aplicativo/Genius/Genius.vhd".
+    Related source file is "C:/Users/erikn/Genius Game/Genius/Genius.vhd".
 WARNING:Xst:646 - Signal <nx_state> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
     Found 4x26-bit ROM for signal <mode$mux0002> created at line 89.
     Found 15x8-bit ROM for signal <n$rom0000>.
@@ -635,14 +645,14 @@ Offset:              12.344ns (Levels of Logic = 8)
 =========================================================================
 
 
-Total REAL time to Xst completion: 13.00 secs
-Total CPU time to Xst completion: 12.26 secs
+Total REAL time to Xst completion: 12.00 secs
+Total CPU time to Xst completion: 12.16 secs
  
 --> 
 
-Total memory usage is 275252 kilobytes
+Total memory usage is 275184 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :   11 (   0 filtered)
+Number of warnings :   20 (   0 filtered)
 Number of infos    :    1 (   0 filtered)
 

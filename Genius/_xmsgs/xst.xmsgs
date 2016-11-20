@@ -5,6 +5,33 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
+<msg type="warning" file="HDLParsers" num="3607" delta="new" >Unit <arg fmt="%s" index="1">work/Genius</arg> is now defined in a different file.  It was defined in &quot;<arg fmt="%s" index="2">C:/Users/erikn/Desktop/Projeto Aplicativo/Genius/Genius.vhd</arg>&quot;, and is now defined in &quot;<arg fmt="%s" index="3">C:/Users/erikn/Genius Game/Genius/Genius.vhd</arg>&quot;.
+</msg>
+
+<msg type="warning" file="HDLParsers" num="3607" delta="new" >Unit <arg fmt="%s" index="1">work/Genius/Behavioral</arg> is now defined in a different file.  It was defined in &quot;<arg fmt="%s" index="2">C:/Users/erikn/Desktop/Projeto Aplicativo/Genius/Genius.vhd</arg>&quot;, and is now defined in &quot;<arg fmt="%s" index="3">C:/Users/erikn/Genius Game/Genius/Genius.vhd</arg>&quot;.
+</msg>
+
+<msg type="warning" file="HDLParsers" num="3607" delta="new" >Unit <arg fmt="%s" index="1">work/Decoder</arg> is now defined in a different file.  It was defined in &quot;<arg fmt="%s" index="2">C:/Users/erikn/Desktop/Projeto Aplicativo/Genius/Decoder.vhd</arg>&quot;, and is now defined in &quot;<arg fmt="%s" index="3">C:/Users/erikn/Genius Game/Genius/Decoder.vhd</arg>&quot;.
+</msg>
+
+<msg type="warning" file="HDLParsers" num="3607" delta="new" >Unit <arg fmt="%s" index="1">work/Decoder/Behavioral</arg> is now defined in a different file.  It was defined in &quot;<arg fmt="%s" index="2">C:/Users/erikn/Desktop/Projeto Aplicativo/Genius/Decoder.vhd</arg>&quot;, and is now defined in &quot;<arg fmt="%s" index="3">C:/Users/erikn/Genius Game/Genius/Decoder.vhd</arg>&quot;.
+</msg>
+
+<msg type="warning" file="HDLParsers" num="3607" delta="new" >Unit <arg fmt="%s" index="1">work/VGA</arg> is now defined in a different file.  It was defined in &quot;<arg fmt="%s" index="2">C:/Users/erikn/Desktop/Projeto Aplicativo/Genius/VGA.vhd</arg>&quot;, and is now defined in &quot;<arg fmt="%s" index="3">C:/Users/erikn/Genius Game/Genius/VGA.vhd</arg>&quot;.
+</msg>
+
+<msg type="warning" file="HDLParsers" num="3607" delta="new" >Unit <arg fmt="%s" index="1">work/VGA/behavior</arg> is now defined in a different file.  It was defined in &quot;<arg fmt="%s" index="2">C:/Users/erikn/Desktop/Projeto Aplicativo/Genius/VGA.vhd</arg>&quot;, and is now defined in &quot;<arg fmt="%s" index="3">C:/Users/erikn/Genius Game/Genius/VGA.vhd</arg>&quot;.
+</msg>
+
+<msg type="warning" file="HDLParsers" num="3607" delta="new" >Unit <arg fmt="%s" index="1">work/rom_characters</arg> is now defined in a different file.  It was defined in &quot;<arg fmt="%s" index="2">C:/Users/erikn/Desktop/Projeto Aplicativo/Genius/rom_characters.vhd</arg>&quot;, and is now defined in &quot;<arg fmt="%s" index="3">C:/Users/erikn/Genius Game/Genius/char_rom.vhd</arg>&quot;.
+</msg>
+
+<msg type="warning" file="HDLParsers" num="3607" delta="new" >Unit <arg fmt="%s" index="1">work/global_pack</arg> is now defined in a different file.  It was defined in &quot;<arg fmt="%s" index="2">C:/Users/erikn/Desktop/Projeto Aplicativo/Genius/global_pack.vhd</arg>&quot;, and is now defined in &quot;<arg fmt="%s" index="3">C:/Users/erikn/Genius Game/Genius/global_pack.vhd</arg>&quot;.
+</msg>
+
+<msg type="warning" file="HDLParsers" num="3607" delta="new" >Unit <arg fmt="%s" index="1">work/global_pack</arg> is now defined in a different file.  It was defined in &quot;<arg fmt="%s" index="2">C:/Users/erikn/Desktop/Projeto Aplicativo/Genius/global_pack.vhd</arg>&quot;, and is now defined in &quot;<arg fmt="%s" index="3">C:/Users/erikn/Genius Game/Genius/global_pack.vhd</arg>&quot;.
+</msg>
+
 <msg type="warning" file="Xst" num="646" delta="old" >Signal &lt;<arg fmt="%s" index="1">nx_state</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 </msg>
 

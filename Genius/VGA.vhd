@@ -84,7 +84,8 @@ begin
 				
 			--case pr_state is
 				
-				--when idle => red <= "100";
+				--when idle => 
+				red <= "100";
 								 green <= "100";
 								 blue <= "10";
 				--when gg => 

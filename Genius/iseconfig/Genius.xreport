@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2016-11-19T13:21:10</DateModified>
+  <DateModified>2016-11-19T21:59:59</DateModified>
   <ModuleName>Genius</ModuleName>
   <SummaryTimeStamp>2016-11-17T17:48:14</SummaryTimeStamp>
-  <SavedFilePath>C:/Users/erikn/Desktop/Projeto Aplicativo/Genius/iseconfig/Genius.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>C:/Users/erikn/Desktop/Projeto Aplicativo/Genius\</ImplementationReportsDirectory>
+  <SavedFilePath>C:/Users/erikn/Genius Game/Genius/iseconfig/Genius.xreport</SavedFilePath>
+  <ImplementationReportsDirectory>C:/Users/erikn/Genius Game/Genius\</ImplementationReportsDirectory>
   <DateInitialized>2016-11-05T21:12:10</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>

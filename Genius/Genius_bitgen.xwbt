@@ -1,8 +1,8 @@
 INTSTYLE=ise
-INFILE=C:\Users\erikn\Desktop\Projeto Aplicativo\Genius\Genius.ncd
-OUTFILE=C:\Users\erikn\Desktop\Projeto Aplicativo\Genius\Genius.bit
+INFILE=C:\Users\erikn\Genius Game\Genius\Genius.ncd
+OUTFILE=C:\Users\erikn\Genius Game\Genius\Genius.bit
 FAMILY=Spartan3E
 PART=xc3s500e-5fg320
-WORKINGDIR=C:\Users\erikn\Desktop\Projeto Aplicativo\Genius
+WORKINGDIR=C:\Users\erikn\Genius Game\Genius
 LICENSE=WebPack
 USER_INFO=__0_0_0

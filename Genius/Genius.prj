@@ -1,5 +1,5 @@
-vhdl work "rom_characters.vhd"
 vhdl work "global_pack.vhd"
+vhdl work "char_rom.vhd"
 vhdl work "VGA.vhd"
 vhdl work "Decoder.vhd"
 vhdl work "Genius.vhd"

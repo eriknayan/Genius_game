@@ -100,67 +100,83 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1479597580" xil_pn:in_ck="-6675301324647355765" xil_pn:name="TRANEXT_xstsynthesize_spartan3e" xil_pn:prop_ck="-6442063029381691465" xil_pn:start_ts="1479597565">
+    <transform xil_pn:end_ts="1479600509" xil_pn:in_ck="-5289466917739343447" xil_pn:name="TRANEXT_xstsynthesize_spartan3e" xil_pn:prop_ck="-6442063029381691465" xil_pn:start_ts="1479600493">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputChanged"/>
-      <status xil_pn:value="InputRemoved"/>
       <status xil_pn:value="OutputChanged"/>
-      <status xil_pn:value="OutputRemoved"/>
+      <outfile xil_pn:name="Genius.lso"/>
+      <outfile xil_pn:name="Genius.ngc"/>
+      <outfile xil_pn:name="Genius.ngr"/>
+      <outfile xil_pn:name="Genius.prj"/>
+      <outfile xil_pn:name="Genius.stx"/>
+      <outfile xil_pn:name="Genius.syr"/>
+      <outfile xil_pn:name="Genius.xst"/>
+      <outfile xil_pn:name="Genius_vhdl.prj"/>
+      <outfile xil_pn:name="Genius_xst.xrpt"/>
+      <outfile xil_pn:name="_xmsgs/xst.xmsgs"/>
+      <outfile xil_pn:name="webtalk_pn.xml"/>
+      <outfile xil_pn:name="xst"/>
     </transform>
     <transform xil_pn:end_ts="1479433472" xil_pn:in_ck="5252585597088789" xil_pn:name="TRAN_compileBCD2" xil_pn:prop_ck="-282000232878102813" xil_pn:start_ts="1479433472">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1479597586" xil_pn:in_ck="7411040134937247046" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="6741601973821878596" xil_pn:start_ts="1479597580">
+    <transform xil_pn:end_ts="1479600515" xil_pn:in_ck="7411040134937247046" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="6741601973821878596" xil_pn:start_ts="1479600509">
       <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="NotReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputRemoved"/>
-      <status xil_pn:value="OutputRemoved"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="Genius.bld"/>
+      <outfile xil_pn:name="Genius.ngd"/>
+      <outfile xil_pn:name="Genius_ngdbuild.xrpt"/>
+      <outfile xil_pn:name="_ngo"/>
+      <outfile xil_pn:name="_xmsgs/ngdbuild.xmsgs"/>
     </transform>
-    <transform xil_pn:end_ts="1479597600" xil_pn:in_ck="7412571713922511495" xil_pn:name="TRANEXT_map_spartan3" xil_pn:prop_ck="-1385558637487232517" xil_pn:start_ts="1479597586">
+    <transform xil_pn:end_ts="1479600530" xil_pn:in_ck="7412571713922511495" xil_pn:name="TRANEXT_map_spartan3" xil_pn:prop_ck="-1385558637487232517" xil_pn:start_ts="1479600515">
       <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="NotReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputRemoved"/>
-      <status xil_pn:value="OutputRemoved"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="Genius.pcf"/>
+      <outfile xil_pn:name="Genius_map.map"/>
+      <outfile xil_pn:name="Genius_map.mrp"/>
+      <outfile xil_pn:name="Genius_map.ncd"/>
+      <outfile xil_pn:name="Genius_map.ngm"/>
+      <outfile xil_pn:name="Genius_map.xrpt"/>
+      <outfile xil_pn:name="Genius_summary.xml"/>
+      <outfile xil_pn:name="Genius_usage.xml"/>
+      <outfile xil_pn:name="_xmsgs/map.xmsgs"/>
     </transform>
-    <transform xil_pn:end_ts="1479597633" xil_pn:in_ck="-7520182843117085216" xil_pn:name="TRANEXT_par_spartan3" xil_pn:prop_ck="2109159449320573919" xil_pn:start_ts="1479597600">
+    <transform xil_pn:end_ts="1479600564" xil_pn:in_ck="-7520182843117085216" xil_pn:name="TRANEXT_par_spartan3" xil_pn:prop_ck="2109159449320573919" xil_pn:start_ts="1479600530">
       <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="NotReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputRemoved"/>
-      <status xil_pn:value="OutputRemoved"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="Genius.ncd"/>
+      <outfile xil_pn:name="Genius.pad"/>
+      <outfile xil_pn:name="Genius.par"/>
+      <outfile xil_pn:name="Genius.ptwx"/>
+      <outfile xil_pn:name="Genius.unroutes"/>
+      <outfile xil_pn:name="Genius.xpi"/>
+      <outfile xil_pn:name="Genius_pad.csv"/>
+      <outfile xil_pn:name="Genius_pad.txt"/>
+      <outfile xil_pn:name="Genius_par.xrpt"/>
+      <outfile xil_pn:name="_xmsgs/par.xmsgs"/>
     </transform>
-    <transform xil_pn:end_ts="1479574918" xil_pn:in_ck="3442091012843374" xil_pn:name="TRANEXT_bitFile_spartan3e" xil_pn:prop_ck="287829442711806529" xil_pn:start_ts="1479574907">
+    <transform xil_pn:end_ts="1479600579" xil_pn:in_ck="3442091012843374" xil_pn:name="TRANEXT_bitFile_spartan3e" xil_pn:prop_ck="287829442711806529" xil_pn:start_ts="1479600566">
       <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="NotReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputChanged"/>
-      <status xil_pn:value="InputRemoved"/>
-      <status xil_pn:value="OutputChanged"/>
-      <status xil_pn:value="OutputRemoved"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="Genius.ut"/>
+      <outfile xil_pn:name="_xmsgs/bitgen.xmsgs"/>
+      <outfile xil_pn:name="genius.bgn"/>
+      <outfile xil_pn:name="genius.bit"/>
+      <outfile xil_pn:name="genius.drc"/>
+      <outfile xil_pn:name="usage_statistics_webtalk.html"/>
+      <outfile xil_pn:name="webtalk.log"/>
+      <outfile xil_pn:name="webtalk_pn.xml"/>
     </transform>
-    <transform xil_pn:end_ts="1479597633" xil_pn:in_ck="7210403287867604227" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416187" xil_pn:start_ts="1479597630">
+    <transform xil_pn:end_ts="1479600564" xil_pn:in_ck="7210403287867604227" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416187" xil_pn:start_ts="1479600560">
       <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="NotReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputRemoved"/>
-      <status xil_pn:value="OutputRemoved"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="Genius.twr"/>
+      <outfile xil_pn:name="Genius.twx"/>
+      <outfile xil_pn:name="_xmsgs/trce.xmsgs"/>
     </transform>
   </transforms>
 

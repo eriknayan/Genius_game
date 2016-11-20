@@ -129,3 +129,9 @@ ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc nexys2.ucf -p xc3s500e-fg320-5
 map -intstyle ise -p xc3s500e-fg320-5 -timing -logic_opt off -ol high -xe n -t 1 -register_duplication off -cm area -ir off -pr off -power off -o Genius_map.ncd Genius.ngd Genius.pcf 
 par -w -intstyle ise -pl high -rl high -xe n -t 1 Genius_map.ncd Genius.ncd Genius.pcf 
 trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml Genius.twx Genius.ncd -o Genius.twr Genius.pcf -ucf nexys2.ucf 
+xst -intstyle ise -ifn "C:/Users/erikn/Genius Game/Genius/Genius.xst" -ofn "C:/Users/erikn/Genius Game/Genius/Genius.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc nexys2.ucf -p xc3s500e-fg320-5 "Genius.ngc" Genius.ngd  
+map -intstyle ise -p xc3s500e-fg320-5 -timing -logic_opt off -ol high -xe n -t 1 -register_duplication off -cm area -ir off -pr off -power off -o Genius_map.ncd Genius.ngd Genius.pcf 
+par -w -intstyle ise -pl high -rl high -xe n -t 1 Genius_map.ncd Genius.ncd Genius.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml Genius.twx Genius.ncd -o Genius.twr Genius.pcf -ucf nexys2.ucf 
+bitgen -intstyle ise -f Genius.ut Genius.ncd 

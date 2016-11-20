@@ -1,7 +1,7 @@
 Release 14.7 par P.20131013 (nt64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-ERIKPC::  Sat Nov 19 21:20:01 2016
+ERIKPC::  Sat Nov 19 22:08:51 2016
 
 par -w -intstyle ise -pl high -rl high -xe n -t 1 Genius_map.ncd Genius.ncd
 Genius.pcf 
@@ -52,8 +52,8 @@ Design Summary Report:
 Overall effort level (-ol):   Not applicable because -pl and -rl switches are used
 Router effort level (-rl):    High 
 
-Starting initial Timing Analysis.  REAL time: 3 secs 
-Finished initial Timing Analysis.  REAL time: 3 secs 
+Starting initial Timing Analysis.  REAL time: 4 secs 
+Finished initial Timing Analysis.  REAL time: 4 secs 
 
 Starting Router
 
@@ -82,9 +82,9 @@ Phase  9  : 0 unrouted; (Par is working to improve performance)     REAL time: 2
 
 Phase 10  : 0 unrouted; (Par is working to improve performance)     REAL time: 26 secs 
 
-Phase 11  : 0 unrouted; (Par is working to improve performance)     REAL time: 26 secs 
+Phase 11  : 0 unrouted; (Par is working to improve performance)     REAL time: 27 secs 
 
-Total REAL time to Router completion: 26 secs 
+Total REAL time to Router completion: 27 secs 
 Total CPU time to Router completion: 26 secs 
 
 Partition Implementation Status
