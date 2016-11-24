@@ -31,13 +31,14 @@ architecture Behavioral of Genius is
 	signal swt_delay: integer range 0 to p := p;
 	signal seq_delay: integer range 0 to e := 0;
 	
+	signal r: integer range 0 to 9:= 0;
 	signal s: integer range 1 to 14 := 1;
 	signal n: integer range 0 to 14 := 0;
 	signal lvl: integer range 1 to 14 := 1;
 		
 	shared variable mode: integer range 0 to e := e;
 	
-	signal color: std_logic_vector (3 downto 0);
+	signal nibble: std_logic_vector (3 downto 0) := "0000";
 	signal try: std_logic_vector (3 downto 0) := "0000";
 	
 	signal pr_state: states := idle;
@@ -53,9 +54,9 @@ architecture Behavioral of Genius is
 	
 	component VGA is
 		port(	clk: in std_logic;  
-				reset:  in std_logic;
-				color:  in std_logic_vector (3 downto 0);
-				switches:  in std_logic_vector (3 downto 0);
+				reset: in std_logic;
+				nibble: in std_logic_vector (3 downto 0);
+				lvl: in integer range 1 to 14;
 				pr_state: in states;
 				h_sync: out std_logic;  
 				v_sync: out std_logic; 
@@ -80,10 +81,11 @@ begin
 		case pr_state is
 		
 		when idle => leds<="1111";
+						 nibble<="1111";
 						 lvl<=1;
 						 n<=0;	
 						 s<=1;
-						 try<="0000";
+						 r<=0;
 						 
 						 if ( start='1' ) then
 							if ( diff="00" ) then
@@ -100,9 +102,10 @@ begin
 							nx_state:=idle;
 						 end if;
 						 
-	   when print => leds<=seq(n);
-						  color<=seq(n);
-						  
+	   when print => leds<=sequences(r)(n);
+						  nibble<=sequences(r)(n);
+						  dly_delay<=d;
+						  try<="0000";
 						  if ( seq_delay=0 ) then
 								nx_state:=dly;	
 						  else
@@ -110,7 +113,9 @@ begin
 						  end if;
 		
 		when dly => leds<="0000";
-		
+						nibble<="0000";
+						seq_delay<=mode;
+						
 						if ( dly_delay=0 ) then
 							if ( n=lvl ) then
 								nx_state:=waiting;
@@ -123,8 +128,11 @@ begin
 						end if;
 								
 		when waiting => leds<="0000";
-		
+						    nibble<="0000";
+							 swt_delay<=p;
+							 
 							 if ( switches/="0000" ) then
+								try<=switches;
 								nx_state:=upack;
 							 elsif ( key_delay=0 ) then
 								nx_state:=ff;
@@ -133,14 +141,10 @@ begin
 							 end if;
 							 
 		when upack => leds<=switches;
+						  nibble<=switches;
 		
 						  if ( swt_delay=0 ) then
-								if ( switches/="0000" ) then
-									try<=switches;
-									nx_state:=dbc;
-								else
-									nx_state:=waiting;
-								end if;
+								nx_state:=dbc;
 						  elsif ( key_delay=0 ) then
 								nx_state:=ff;
 						  else
@@ -149,7 +153,9 @@ begin
 		
  
 		when dbc => leds<=switches;
-		
+						nibble<=switches;
+						swt_delay<=p;
+						
 						if ( switches="0000" ) then
 							nx_state:=downack;
 						elsif ( key_delay=0 ) then
@@ -159,9 +165,10 @@ begin
 						end if;
 						
 		when downack => leds<="0000";
-								
+							 nibble<="0000";						 
 							 if ( swt_delay=0 ) then
-								if ( try=seq(s) ) then
+								key_delay<=T;
+								if ( try=sequences(r)(s) ) then
 									if ( s=lvl ) then
 										nx_state:=nextlvl;
 									else
@@ -171,14 +178,15 @@ begin
 								else
 									nx_state:=ff;
 								end if;
-							elsif ( key_delay=0 ) then
+							 elsif ( key_delay=0 ) then
 								nx_state:=ff;
-							else
+							 else
 								nx_state:=downack;
-							end if;
+							 end if;
 							 
 						
 		when nextlvl => leds<="0000";
+							 nibble<="0000";
 		
 							 if ( lvl=14 ) then
 								nx_state:=gg;
@@ -189,13 +197,20 @@ begin
 								s<=1;
 							 end if;
 						
-		when gg => leds<="0110";
+		when gg => leds<="1111";
+					  nibble<="1111";
 		
 						if ( start='1' ) then
 							nx_state:=print;
+							seq_delay<=mode;
+							key_delay<=T;
 							lvl<=1;
 							n<=0;
 							s<=1;
+							r<=r+1;
+							if (r=9) then
+								r<=0;
+							end if;
 							if ( diff="00" ) then
 								mode:=e;
 							elsif ( diff="01" ) then
@@ -210,12 +225,19 @@ begin
 						end if;
 	
 		when ff => leds<=try;
+					  nibble<=try;
 		
 						 if ( start='1' ) then
 							nx_state:=print;
+							seq_delay<=mode;
+							key_delay<=T;
 							lvl<=1;
 							n<=0;
 							s<=1;
+							r<=r+1;
+							if (r=9) then
+								r<=0;
+							end if;
 							if ( diff="00" ) then
 								mode:=e;
 							elsif ( diff="01" ) then
@@ -232,12 +254,6 @@ begin
 		end case;	
 		
 		if (nx_state/=pr_state) then
-			if (nx_state/=dbc and nx_state/=upack and nx_state/=downack) then
-				seq_delay<=mode;
-				swt_delay<=p;
-				dly_delay<=d;
-				key_delay<=T;
-			end if;
 			pr_state<=nx_state;
 		else
 			if ( pr_state=print ) then
@@ -265,7 +281,6 @@ begin
 
 	disp: Decoder port map(clk, reset, display, anode, pr_state, lvl);
 	
-	monitor: VGA port map (clk, reset, color, switches, pr_state, h_sync, v_sync, red, green, blue);
+	monitor: VGA port map (clk, reset, nibble, lvl, pr_state, h_sync, v_sync, red, green, blue);
 
 end Behavioral;
-

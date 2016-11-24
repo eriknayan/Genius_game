@@ -8,70 +8,38 @@ package global_pack is
 	type score is array (3 downto 0) of std_logic_vector (6 downto 0);
 	type enable is array (3 downto 0) of std_logic_vector (3 downto 0);
 	type sequence is array (14 downto 0) of std_logic_vector (3 downto 0);
-	constant seq: sequence := ("0001","1000","0001","0010","0100","1000","1000",
+	
+	constant seq0: sequence := ("0001","1000","0001","0010","0100","1000","1000",
 	"0100","0010","0001","0001","0010","0100","1000", "0000");
 	
-	procedure colors (signal nibble: in std_logic_vector;
-							variable h_count: in integer;
-							signal red: out std_logic_vector (2 downto 0);
-							signal green: out std_logic_vector (2 downto 0);
-							signal blue: out std_logic_vector (1 downto 0));
-
-end global_pack;
-
-package body global_pack is
-
-	procedure colors (signal nibble: in std_logic_vector;
-							variable h_count: in integer;
-							signal red: out std_logic_vector (2 downto 0);
-							signal green: out std_logic_vector (2 downto 0);
-							signal blue: out std_logic_vector (1 downto 0)) is
-   begin						
+	constant seq1: sequence := ("0001","1000","0001","0010","0100","0010","0100",
+	"1000","0001","1000","0001","0100","0010","1000", "0000");
 	
-		if (nibble="1000") then
-			if (h_count<200) then
-				red <= "111";
-				green <= "000";
-				blue <= "00";
-			else
-				red <= (others => '0');
-				green <= (others => '0');
-				blue <= (others => '0');
-			end if;
-		elsif (nibble="0100") then
-			if (h_count>200 and h_count<400) then
-				red <= "000";
-				green <= "000";
-				blue <= "11";
-			else
-				red <= (others => '0');
-				green <= (others => '0');
-				blue <= (others => '0');
-			end if;
-		elsif (nibble="0010") then
-			if (h_count>400 and h_count<600) then
-				red <= "111";
-				green <= "111";
-				blue <= "00";
-			else
-				red <= (others => '0');
-				green <= (others => '0');
-				blue <= (others => '0');
-			end if;
-		elsif (nibble="0001") then
-			if (h_count>600 and h_count<800) then
-				red <= "000";
-				green <= "111";
-				blue <= "00";
-			else
-				red <= (others => '0');
-				green <= (others => '0');
-				blue <= (others => '0');
-			end if;
-		end if;
-		
-	end colors;
-							
+	constant seq2: sequence := ("0010","1000","0001","0010","0100","0010","1000",
+	"0100","1000","0001","0001","0010","0100","0001", "0000");
+	
+	constant seq3: sequence := ("0100","0010","0001","0010","1000","1000","0100",
+	"0001","0010","1000","0001","0010","0100","0100", "0000");
+	
+	constant seq4: sequence := ("0001","0001","1000","0010","0100","1000","1000",
+	"1000","0010","0100","0001","0010","0100","0010", "0000");
+	
+	constant seq5: sequence := ("0100","1000","0010","0010","0100","1000","1000",
+	"0100","0010","0001","1000","0010","0001","0001", "0000");
+	
+	constant seq6: sequence := ("1000","0010","0010","0010","0100","1000","0001",
+	"0100","1000","0100","0001","0010","0100","0100", "0000");
+	
+	constant seq7: sequence := ("0001","1000","0010","0010","0100","1000","1000",
+	"0100","0001","0010","0001","0001","1000","1000", "0000");
+	
+	constant seq8: sequence := ("0010","0001","0100","0001","0010","1000","0100",
+	"0100","1000","0001","1000","0010","0100","0010", "0000");
+	
+	constant seq9: sequence := ("0100","1000","0001","0010","0010","1000","0001",
+	"0100","1000","0001","0010","0001","0100","0001", "0000");
+	
+	type mult_seq is array (9 downto 0) of sequence;
+	constant sequences: mult_seq :=(seq9, seq8, seq7, seq6, seq5, seq4, seq3, seq2, seq1, seq0);
+	
 end global_pack;
-
-

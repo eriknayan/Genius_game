@@ -5,7 +5,7 @@ package rom_characters is
 
 	constant h: integer := 200;
 	constant v: integer := 200;
-	type char_data is array (0 to h-1) of std_logic_vector (0 to v-1);
+	type char_data is array (0 to v-1) of std_logic_vector (0 to h-1);
 	
 	constant zero: char_data := (
 "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
@@ -2435,7 +2435,3 @@ package rom_characters is
 
 	
 end rom_characters;
-
---package body rom_characters is
-
---end rom_characters;
