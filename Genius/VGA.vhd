@@ -6,81 +6,83 @@ use work.rom_characters.all;
 entity VGA is
 
   generic(
-    h_pulse  :  integer   := 120;   --horiztonal sync pulse width in pixels
-    h_bp     :  integer   := 64;   --horiztonal back porch width in pixels
-    h_pixels :  integer   := 800;  --horiztonal display width in pixels
-    h_fp     :  integer   := 56;   --horiztonal front porch width in pixels
-    h_pol    :  std_logic := '1';   --horizontal sync pulse polarity (1 = positive, 0 = negative)
-    v_pulse  :  integer   := 6;     --vertical sync pulse width in rows
-    v_bp     :  integer   := 23;    --vertical back porch width in rows
-    v_pixels :  integer   := 600;  --vertical display width in rows
-    v_fp     :  integer   := 37;     --vertical front porch width in rows
-    v_pol    :  std_logic := '1');  --vertical sync pulse polarity (1 = positive, 0 = negative)
+    h_pulse  :  integer   := 120; -- Largura do pulso de sincronização horizontal em pixels
+    h_bp     :  integer   := 64; -- Largura do back porch horizontal em pixels
+    h_pixels :  integer   := 800; -- Largura de display horizontal em pixels
+    h_fp     :  integer   := 56; -- Largura do front porch horizontal em pixels
+    h_pol    :  std_logic := '1'; -- Polaridade da sincronização horizontal (1 = positiva, 0 = negativa)
+    v_pulse  :  integer   := 6; -- Largura do pulso de sincronização vertical em linhas
+    v_bp     :  integer   := 23; -- Largura do back porch vertical em linhas
+    v_pixels :  integer   := 600; -- Largura de display vertical em linhas
+    v_fp     :  integer   := 37; -- Largura do front porch vertical em linhas
+    v_pol    :  std_logic := '1'); --Polaridade da sincronização vertical (1 = positiva, 0 = negativa)
 	 
   port(
-    clk 		  :  in   std_logic;  --pixel clock at frequency of vga mode being used
-    reset     :  in   std_logic;  --active low asycnchronous reset
-	 nibble	  :  in   std_logic_vector (3 downto 0);
-	 lvl       :  in 	 integer range 1 to 14;
-	 pr_state  :  in   states;
-    h_sync    :  out  std_logic;  --horiztonal sync pulse
-    v_sync    :  out  std_logic;  --vertical sync pulse
-	 red       :  out  std_logic_vector (2 downto 0);
-    green     :  out  std_logic_vector (2 downto 0);
-    blue      :  out  std_logic_vector (1 downto 0));	 
+    clk 		  :  in   std_logic; -- Pixel clock
+    reset     :  in   std_logic;  -- Reset
+	 nibble	  :  in   std_logic_vector (3 downto 0); -- Estado dos leds
+	 lvl       :  in 	 integer range 1 to 14; -- Nível atual do jogo
+	 pr_state  :  in   states; -- Estado da máquina
+    h_sync    :  out  std_logic; -- Pulso de sincronização horizontal
+    v_sync    :  out  std_logic; -- Pulso de sincronização vertical
+	 red       :  out  std_logic_vector (2 downto 0); -- Bits do vermelho do VGA
+    green     :  out  std_logic_vector (2 downto 0); -- Bits do verde do VGA
+    blue      :  out  std_logic_vector (1 downto 0));	-- Bits do azul do VGA
 	 
 end VGA;
 
 architecture behavior of VGA is
 
-  constant  h_period  :  integer := h_pulse + h_bp + h_pixels + h_fp;  --total number of pixel clocks in a row
-  constant  v_period  :  integer := v_pulse + v_bp + v_pixels + v_fp;  --total number of rows in column
-  shared variable h_count  :  integer range 0 to h_period - 1 := 0;  --horizontal counter (counts the columns)
-  shared variable v_count  :  integer range 0 to v_period - 1 := 0;  --vertical counter (counts the rows)
-  signal first_char: char_data :=((others=> (others=>'0')));
-  signal secon_char: char_data :=((others=> (others=>'0')));
+  constant  h_period  :  integer := h_pulse + h_bp + h_pixels + h_fp;  -- Número total de pixels em uma linha
+  constant  v_period  :  integer := v_pulse + v_bp + v_pixels + v_fp;  -- Número total de linhas em uma coluna
+  shared variable h_count  :  integer range 0 to h_period - 1 := 0;  -- Contador horizontal
+  shared variable v_count  :  integer range 0 to v_period - 1 := 0;  -- Contador vertical
+  shared variable red_var : std_logic_vector (2 downto 0) := ( others => '0'); -- Variável para procedure de caracteres
+  shared variable green_var : std_logic_vector (2 downto 0) := ( others => '0'); -- Variável para procedure de caracteres
+  shared variable blue_var : std_logic_vector (1 downto 0) := ( others => '0'); -- Variável para procedure de caracteres
   
 begin					
   
   process(clk, reset, pr_state)
   begin
 	 
-    if(reset = '1') then  --reset asserted
-      h_count := 0;         --reset horizontal counter
-      v_count := 0;         --reset vertical counter
-      h_sync <= not h_pol;  --deassert horizontal sync
-      v_sync <= not v_pol;  --deassert vertical sync
+	 -- Reinicia o VGA em caso de reset
+    if(reset = '1') then  
+      h_count := 0;         
+      v_count := 0;         
+      h_sync <= not h_pol;  
+      v_sync <= not v_pol;  
       
     elsif(rising_edge(clk)) then
 
-      --counters
-      if(h_count < h_period - 1) then    --horizontal counter (pixels)
+      -- Contadores
+      if(h_count < h_period - 1) then    
         h_count := h_count + 1;
       else
         h_count := 0;
-        if(v_count < v_period - 1) then  --veritcal counter (rows)
+        if(v_count < v_period - 1) then  
           v_count := v_count + 1;
         else
           v_count := 0;
         end if;
       end if;
 
-      --horizontal sync signal
+      -- Sincronização Horizontal
       if(h_count < h_pixels + h_fp or h_count > h_pixels + h_fp + h_pulse) then
-        h_sync <= not h_pol;    --deassert horiztonal sync pulse
+        h_sync <= not h_pol;    
       else
-        h_sync <= h_pol;        --assert horiztonal sync pulse
+        h_sync <= h_pol;        
       end if;
       
-      --vertical sync signal
+      -- Sincronização Vertical
       if(v_count < v_pixels + v_fp or v_count > v_pixels + v_fp + v_pulse) then
-        v_sync <= not v_pol;    --deassert vertical sync pulse
+        v_sync <= not v_pol;    
       else
-        v_sync <= v_pol;        --assert vertical sync pulse
+        v_sync <= v_pol;        
       end if;
       
-      --set display output
-      if(h_count < h_pixels and v_count < v_pixels) then --display time
+      -- Verifica se está dentro da área de impressao do display e implementa a lógica para cada estado
+      if(h_count < h_pixels and v_count < v_pixels) then 
 			
 			if (v_count>300) then
 				if (nibble="1000") then
@@ -208,80 +210,50 @@ begin
 					end if;
 				else
 				
+					-- Case que verifica o level e chama procedure para impressão dos devidos caracteres
 					case lvl is
 					
-					when 1 => first_char<=zero;
-								 secon_char<=zero;
+					when 1 => characters (h_count, v_count, zero, zero, red_var, green_var, blue_var);
 								 
-					when 2 => first_char<=zero;
-								 secon_char<=one;
+					when 2 => characters (h_count, v_count, zero, one, red_var, green_var, blue_var);
 								 
-					when 3 => first_char<=zero;
-								 secon_char<=two;
+					when 3 => characters (h_count, v_count, zero, two, red_var, green_var, blue_var);
 								 
-					when 4 => first_char<=zero;
-								 secon_char<=three;
+					when 4 => characters (h_count, v_count, zero, three, red_var, green_var, blue_var);
+								 								 
+					when 5 => characters (h_count, v_count, zero, four, red_var, green_var, blue_var);
+								 								 
+					when 6 => characters (h_count, v_count, zero, five, red_var, green_var, blue_var);
 								 
-					when 5 => first_char<=zero;
-								 secon_char<=four;
+					when 7 => characters (h_count, v_count, zero, six, red_var, green_var, blue_var);
+								 								 
+					when 8 => characters (h_count, v_count, zero, seven, red_var, green_var, blue_var);
 								 
-					when 6 => first_char<=zero;
-								 secon_char<=five;
-								 
-					when 7 => first_char<=zero;
-								 secon_char<=six;
-								 
-					when 8 => first_char<=zero;
-								 secon_char<=seven;
-								 
-					when 9 => first_char<=zero;
-								 secon_char<=eight;
-								 
-					when 10 => first_char<=zero;
-								 secon_char<=nine;
-								 
-					when 11 => first_char<=one;
-								 secon_char<=zero;
-								 
-					when 12 => first_char<=one;
-								 secon_char<=one;
-								 
-					when 13 => first_char<=one;
-								 secon_char<=two;
-								 
-					when 14 => first_char<=one;
-								 secon_char<=three;
-					
+					when 9 => characters (h_count, v_count, zero, eight, red_var, green_var, blue_var);
+								 								 
+					when 10 => characters (h_count, v_count, zero, nine, red_var, green_var, blue_var);
+								 								 
+					when 11 => characters (h_count, v_count, one, zero, red_var, green_var, blue_var);
+								 								 
+					when 12 => characters (h_count, v_count, one, one, red_var, green_var, blue_var);
+								 								 
+					when 13 => characters (h_count, v_count, one, two, red_var, green_var, blue_var);
+								 								 
+					when 14 => characters (h_count, v_count, one, three, red_var, green_var, blue_var);
+								  
 					end case;
-								 
-						if (h_count>250 and h_count<400 and v_count>50 and v_count<250) then
-							if (first_char(v_count-50)(h_count-225)='1') then
-								red <= (others => '1');
-								green <= (others => '1');
-								blue <= (others => '1');
-							else
-								red <= (others => '0');
-								green <= (others => '0');
-								blue <= (others => '0');
-							end if;
-						elsif (h_count>400 and h_count<550 and v_count>50 and v_count<250) then
-							if (secon_char(v_count-50)(h_count-375)='1') then
-								red <= (others => '1');
-								green <= (others => '1');
-								blue <= (others => '1');
-							else
-								red <= (others => '0');
-								green <= (others => '0');
-								blue <= (others => '0');
-							end if;
-						end if;
 						
+					-- Associação das variáveis com as saidas RGB
+					red <= red_var;
+					green <= green_var;
+					blue <= blue_var;
+								 
 				end if;
 				
 			end if;
 	
-
-      else --blanking time
+		-- Tempo em que nada é enviado no RGB
+      else 
 			red <= (others => '0');
 			green <= (others => '0');
 			blue <= (others => '0');

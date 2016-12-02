@@ -4,32 +4,33 @@ use work.global_pack.all;
 
 entity Decoder is
 
-	generic ( f: integer := 4000;
-				 l: integer := 25000000);
-	port ( clk, reset: in std_logic;
-	       display: out std_logic_vector (6 downto 0);
-			 anode: out std_logic_vector (3 downto 0);
-			 pr_state: in states;
-			 lvl: in integer range 1 to 14);
+	generic ( f: integer := 4000; -- Tempo de multiplexação
+				 l: integer := 25000000); -- Clock de rolagem do display
+	port ( clk, reset: in std_logic; -- Clock, Reset
+	       display: out std_logic_vector (6 downto 0); -- Segmentos dos displays (catodos)
+			 anode: out std_logic_vector (3 downto 0); -- Anodos dos displays
+			 pr_state: in states; -- Estado atual da máquina
+			 lvl: in integer range 1 to 14); -- Nível atual do jogo
 
 end Decoder;
 
 architecture Behavioral of Decoder is
 
-	signal i: integer range 0 to 3 := 3;
-	signal j: integer range 0 to 19 := 19;
-	signal count_f: integer range 0 to f := f;
-	signal count_l: integer range 0 to l := l;
-	signal pont: score := ("1111111","1111111","1111111","1111111");
-	constant anodos: enable := ("0111","1011","1101","1110");
-	constant gameover: score := ("0111000","0001000","1001111","1110001");
-	constant win: score := ("1111111","0100000","0100000","1111111"); 
+	signal i: integer range 0 to 3 := 3; -- Ponteiro de multiplexação dos displays
+	signal j: integer range 0 to 19 := 19; -- Ponteiro para rolagem da mensagem
+	signal count_f: integer range 0 to f := f; -- Contador de rolagem
+	signal count_l: integer range 0 to l := l; -- Contador de multiplexação
+	signal pont: score := ("1111111","1111111","1111111","1111111"); -- Sinal para exibição da pontuação
+	constant anodos: enable := ("0111","1011","1101","1110"); -- Modos dos anodos
+	constant gameover: score := ("0111000","0001000","1001111","1110001"); -- Mensagem de "GG"
+	constant win: score := ("1111111","0100000","0100000","1111111"); -- Mensagem de "FF"
 	constant projeto_aplic: pa_ed := ("0011000","1111010","0000001","1000011","0110000","1110000","0000001",
 	"1111111","0001000","0011000","1110001","1001111","0110001","0001000","1110000","1001111","1000001",
-	"0000001","1111110","0110000","1000010","1111111","1111111");
+	"0000001","1111110","0110000","1000010","1111111","1111111"); -- Mensagem "Projeto Aplicativo - ED"
 	
 begin
 	
+	-- Processo que realização a multiplexação e impressão dos valores nos displays
 	process(clk, lvl, reset, pr_state)
 	begin
 		
@@ -58,6 +59,7 @@ begin
 			end if;	
 		end if;
 		
+		-- Case que verifica o nível atual e repassa o valor adequado de pontuação para exibição
 		case lvl is
 				
 				when 1 => pont <= ("1111111","0000001","0000001","1111111");
@@ -90,6 +92,7 @@ begin
 		
 		end case;
 		
+		-- Case que vericia o estado atual da máquina e o que deve ser exibido nos displays
 		case pr_state is
 			
 				when idle =>  display <= projeto_aplic(i+j);
@@ -102,6 +105,7 @@ begin
 									
 		end case;
 		
+		-- Atribuição aos anodos do modo atual para multiplexação
 		anode <= anodos(i);
 	
 	end process;

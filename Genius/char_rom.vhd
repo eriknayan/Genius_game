@@ -1,3 +1,8 @@
+-- Package que define as constantes com o desenho de cada um dos caracteres utilizados
+-- Números: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9
+-- Letras: F, G
+-- Constantes de 200x200 pixels
+
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
 

@@ -1,43 +1,10 @@
---------------------------------------------------------------------------------
--- Company: 
--- Engineer:
---
--- Create Date:   15:30:31 11/11/2016
--- Design Name:   
--- Module Name:   D:/Documentos/Xilinx/Genius Game/Genius/Genius_TB.vhd
--- Project Name:  Genius
--- Target Device:  
--- Tool versions:  
--- Description:   
--- 
--- VHDL Test Bench Created by ISE for module: Genius
--- 
--- Dependencies:
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
---
--- Notes: 
--- This testbench has been automatically generated using types std_logic and
--- std_logic_vector for the ports of the unit under test.  Xilinx recommends
--- that these types always be used for the top-level I/O of a design in order
--- to guarantee that the testbench will bind correctly to the post-implementation 
--- simulation model.
---------------------------------------------------------------------------------
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
- 
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---USE ieee.numeric_std.ALL;
- 
+
 ENTITY Genius_TB IS
 END Genius_TB;
  
 ARCHITECTURE behavior OF Genius_TB IS 
- 
-    -- Component Declaration for the Unit Under Test (UUT)
  
     COMPONENT Genius
     PORT(
@@ -45,24 +12,37 @@ ARCHITECTURE behavior OF Genius_TB IS
          start : IN  std_logic;
          reset : IN  std_logic;
          diff : IN  std_logic_vector(1 downto 0);
-         switches : IN  std_logic_vector(3 downto 0);
-         leds : OUT  std_logic_vector(3 downto 0)
+         button : IN  std_logic_vector(3 downto 0);
+         display : OUT  std_logic_vector(6 downto 0);
+         anode : OUT  std_logic_vector(3 downto 0);
+         leds : OUT  std_logic_vector(3 downto 0);
+         h_sync : OUT  std_logic;
+         v_sync : OUT  std_logic;
+         red : OUT  std_logic_vector(2 downto 0);
+         green : OUT  std_logic_vector(2 downto 0);
+         blue : OUT  std_logic_vector(1 downto 0)
         );
     END COMPONENT;
-    
-
+   
    --Inputs
    signal clk : std_logic := '0';
    signal start : std_logic := '0';
    signal reset : std_logic := '0';
    signal diff : std_logic_vector(1 downto 0) := (others => '0');
-   signal switches : std_logic_vector(3 downto 0) := (others => '0');
+   signal button : std_logic_vector(3 downto 0) := (others => '0');
 
  	--Outputs
+   signal display : std_logic_vector(6 downto 0);
+   signal anode : std_logic_vector(3 downto 0);
    signal leds : std_logic_vector(3 downto 0);
+   signal h_sync : std_logic;
+   signal v_sync : std_logic;
+   signal red : std_logic_vector(2 downto 0);
+   signal green : std_logic_vector(2 downto 0);
+   signal blue : std_logic_vector(1 downto 0);
 
    -- Clock period definitions
-   constant clk_period : time := 20 ns;
+   constant clk_period : time := 10 ns;
  
 BEGIN
  
@@ -72,8 +52,15 @@ BEGIN
           start => start,
           reset => reset,
           diff => diff,
-          switches => switches,
-          leds => leds
+          button => button,
+          display => display,
+          anode => anode,
+          leds => leds,
+          h_sync => h_sync,
+          v_sync => v_sync,
+          red => red,
+          green => green,
+          blue => blue
         );
 
    -- Clock process definitions
@@ -89,43 +76,451 @@ BEGIN
    -- Stimulus process
    stim_proc: process
    begin		
-      -- hold reset state for 100 ns.
-		switches<="0000";
-		diff<="10";
-		start<='0';
 		reset<='1';
-      wait for 100 ns;	
+		button<="0000";
+		diff<="00";
+		start<='0';
+      wait for 100 ns;
 		reset<='0';
+		diff<="10";		
 		start<='1';
-		wait for 500 ms;
-		switches<="1000";
-		wait for 500 ms;
-		switches<="0000";
-		wait for 1200 ms;
-		switches<="1000";
-		wait for 500 ms;
-		switches<="0000";
-		wait for 500 ms;
-		switches<="0100";
-		wait for 500 ms;
-		switches<="0000";
-		wait for 1700 ms;
-		switches<="1000";
-		wait for 500 ms;
-		switches<="0000";
-		wait for 500 ms;
-		switches<="0100";
-		wait for 500 ms;
-		switches<="0000";
-		wait for 500 ms;
-		switches<="0001";
-		wait for 500 ms;
-		switches<="0000";
-
-
-      wait for clk_period*10;
-
-      -- insert stimulus here 
+		wait for 100 ns;
+		start<='0';
+		wait for 600 us;
+		button<="1000";
+		wait for 50 us;
+		button<="0000";
+		wait for 900 us;
+		button<="1000";
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="0100";
+		wait for 50 us;
+		button<="0000";
+		wait for 1200 us;
+		button<="1000";
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="0100";
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="0010";
+		wait for 50 us;
+		button<="0000";
+		wait for 1500 us;
+		button<="1000";
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="0100";
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="0010";		
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="0001";
+		wait for 50 us;
+		button<="0000";
+		wait for 1800 us;
+		button<="1000";
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="0100";
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="0010";		
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="0001";
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="0001";
+		wait for 50 us;
+		button<="0000";
+		wait for 2100 us;
+		button<="1000";
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="0100";
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="0010";		
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="0001";
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="0001";
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="0010";
+		wait for 50 us;
+		button<="0000";
+		wait for 2400 us;
+		button<="1000";
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="0100";
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="0010";		
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="0001";
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="0001";
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="0010";
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="0100";
+		wait for 50 us;
+		button<="0000";
+		wait for 2700 us;
+		button<="1000";
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="0100";
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="0010";		
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="0001";
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="0001";
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="0010";
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="0100";
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="1000";
+		wait for 50 us;
+		button<="0000";
+		wait for 3000 us;
+		button<="1000";
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="0100";
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="0010";		
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="0001";
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="0001";
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="0010";
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="0100";
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="1000";
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="1000";
+		wait for 50 us;
+		button<="0000";
+		wait for 3300 us;
+		button<="1000";
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="0100";
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="0010";		
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="0001";
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="0001";
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="0010";
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="0100";
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="1000";
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="1000";
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="0100";
+		wait for 50 us;
+		button<="0000";
+		wait for 3600 us;
+		button<="1000";
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="0100";
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="0010";		
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="0001";
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="0001";
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="0010";
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="0100";
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="1000";
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="1000";
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="0100";
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="0010";
+		wait for 50 us;
+		button<="0000";
+		wait for 3900 us;
+		button<="1000";
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="0100";
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="0010";		
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="0001";
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="0001";
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="0010";
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="0100";
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="1000";
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="1000";
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="0100";
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="0010";
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="0001";
+		wait for 50 us;
+		button<="0000";
+		wait for 4200 us;
+		button<="1000";
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="0100";
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="0010";		
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="0001";
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="0001";
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="0010";
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="0100";
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="1000";
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="1000";
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="0100";
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="0010";
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="0001";
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="1000";
+		wait for 50 us;
+		button<="0000";
+		wait for 4500 us;
+		button<="1000";
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="0100";
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="0010";		
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="0001";
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="0001";
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="0010";
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="0100";
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="1000";
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="1000";
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="0100";
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="0010";
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="0001";
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="1000";
+		wait for 50 us;
+		button<="0000";
+		wait for 100 us;
+		button<="0001";
+		wait for 50 us;
+		button<="0000";
+		
+		wait for 100 us;
+		start<='1';
+		wait for 100 ns;
+		start<='0';
+		wait for 600 us;
+		button<="0001";
+		wait for 50 us;
+		button<="0000";
+		
+		wait for 100 us;
+		start<='1';
+		wait for 100 ns;
+		start<='0';
+		wait for 5 ms;
 
       wait;
    end process;

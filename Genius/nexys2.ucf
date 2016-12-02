@@ -33,10 +33,10 @@ NET "clk" LOC = "B8";
 NET "diff(0)" LOC = "K18";
 NET "diff(1)" LOC = "K17";
 
-NET "switches(0)" LOC = "B18";
-NET "switches(1)" LOC = "D18";
-NET "switches(2)" LOC = "E18";
-NET "switches(3)" LOC = "H13";
+NET "button(0)" LOC = "B18";
+NET "button(1)" LOC = "D18";
+NET "button(2)" LOC = "E18";
+NET "button(3)" LOC = "H13";
 
 NET "start" LOC = "G18";
 NET "reset" LOC = "H18";

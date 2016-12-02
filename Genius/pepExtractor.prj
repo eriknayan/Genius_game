@@ -1,2 +1,5 @@
+work	"Decoder.vhd"
 work	"Genius.vhd"
+work	"VGA.vhd"
+work	"char_rom.vhd"
 work	"global_pack.vhd"

@@ -1,5 +1,5 @@
-vhdl work "C:\Users\erikn\Genius Game\Genius\global_pack.vhd"
 vhdl work "C:\Users\erikn\Genius Game\Genius\char_rom.vhd"
+vhdl work "C:\Users\erikn\Genius Game\Genius\global_pack.vhd"
 vhdl work "C:\Users\erikn\Genius Game\Genius\VGA.vhd"
 vhdl work "C:\Users\erikn\Genius Game\Genius\Decoder.vhd"
 vhdl work "C:\Users\erikn\Genius Game\Genius\Genius.vhd"
