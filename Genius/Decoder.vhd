@@ -4,23 +4,23 @@ use work.global_pack.all;
 
 entity Decoder is
 
-	generic ( f: integer := 4000; -- Tempo de multiplexação
+	generic ( f: integer := 4000; -- Tempo de multiplexaÃ§Ã£o
 				 l: integer := 25000000); -- Clock de rolagem do display
 	port ( clk, reset: in std_logic; -- Clock, Reset
 	       display: out std_logic_vector (6 downto 0); -- Segmentos dos displays (catodos)
 			 anode: out std_logic_vector (3 downto 0); -- Anodos dos displays
-			 pr_state: in states; -- Estado atual da máquina
-			 lvl: in integer range 1 to 14); -- Nível atual do jogo
+			 pr_state: in states; -- Estado atual da mÃ¡quina
+			 lvl: in integer range 1 to 14); -- NÃ­vel atual do jogo
 
 end Decoder;
 
 architecture Behavioral of Decoder is
 
-	signal i: integer range 0 to 3 := 3; -- Ponteiro de multiplexação dos displays
+	signal i: integer range 0 to 3 := 3; -- Ponteiro de multiplexaÃ§Ã£o dos displays
 	signal j: integer range 0 to 19 := 19; -- Ponteiro para rolagem da mensagem
 	signal count_f: integer range 0 to f := f; -- Contador de rolagem
-	signal count_l: integer range 0 to l := l; -- Contador de multiplexação
-	signal pont: score := ("1111111","1111111","1111111","1111111"); -- Sinal para exibição da pontuação
+	signal count_l: integer range 0 to l := l; -- Contador de multiplexaÃ§Ã£o
+	signal pont: score := ("1111111","1111111","1111111","1111111"); -- Sinal para exibiÃ§Ã£o da pontuaÃ§Ã£o
 	constant anodos: enable := ("0111","1011","1101","1110"); -- Modos dos anodos
 	constant gameover: score := ("0111000","0001000","1001111","1110001"); -- Mensagem de "GG"
 	constant win: score := ("1111111","0100000","0100000","1111111"); -- Mensagem de "FF"
@@ -30,8 +30,8 @@ architecture Behavioral of Decoder is
 	
 begin
 	
-	-- Processo que realização a multiplexação e impressão dos valores nos displays
-	process(clk, lvl, reset, pr_state)
+	-- Processo que realizaÃ§Ã£o a multiplexaÃ§Ã£o e impressÃ£o dos valores nos displays
+	process(clk, lvl, reset, pr_state, i, j, pont)
 	begin
 		
 		if ( reset='1' ) then
@@ -59,7 +59,7 @@ begin
 			end if;	
 		end if;
 		
-		-- Case que verifica o nível atual e repassa o valor adequado de pontuação para exibição
+		-- Case que verifica o nÃ­vel atual e repassa o valor adequado de pontuaÃ§Ã£o para exibiÃ§Ã£o
 		case lvl is
 				
 				when 1 => pont <= ("1111111","0000001","0000001","1111111");
@@ -92,7 +92,7 @@ begin
 		
 		end case;
 		
-		-- Case que vericia o estado atual da máquina e o que deve ser exibido nos displays
+		-- Case que vericia o estado atual da mÃ¡quina e o que deve ser exibido nos displays
 		case pr_state is
 			
 				when idle =>  display <= projeto_aplic(i+j);
@@ -105,7 +105,7 @@ begin
 									
 		end case;
 		
-		-- Atribuição aos anodos do modo atual para multiplexação
+		-- AtribuiÃ§Ã£o aos anodos do modo atual para multiplexaÃ§Ã£o
 		anode <= anodos(i);
 	
 	end process;
